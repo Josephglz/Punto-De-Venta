@@ -46,7 +46,7 @@ namespace Modelo
 
         public void setSubTotal()
         {
-            _subTotal = this._producto.getPrecio() * _cantidad;
+            _subTotal = _producto.getPrecio() * _cantidad;
         }
 
 

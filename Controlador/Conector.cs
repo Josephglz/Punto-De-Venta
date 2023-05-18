@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Controlador
 {
@@ -12,14 +13,17 @@ namespace Controlador
     {
         public static DataSet herramientas(string cmd)
         {
-            SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=puntoventa;Persist Security Info=True;User ID=sa;Password=prointernet");
+            SqlConnection conexion = new SqlConnection(@"Data Source=.;Initial Catalog=puntoventa;Persist Security Info=True;User ID=sa;Password=pruebas");
             conexion.Open();
-
             DataSet dll = new DataSet();
-            SqlDataAdapter dll1 = new SqlDataAdapter(cmd, conexion);
-
-            dll1.Fill(dll);
-
+            try
+            {
+                SqlDataAdapter dll1 = new SqlDataAdapter(cmd, conexion);
+                dll1.Fill(dll);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             conexion.Close();
             return dll;
         }
