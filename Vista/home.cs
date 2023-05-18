@@ -418,7 +418,7 @@ namespace Vista
             List<Producto> productosEnStock = GetproductosEnStock(); // Método para obtener el listado de productos en stock desde tu lógica de negocio
 
             // Crear la tabla de productos en stock
-            PdfPTable tablaProductos = new PdfPTable(4); // 4 columnas: ID, Nombre, Stock, Precio
+            PdfPTable tablaProductos = new PdfPTable(5); // 4 columnas: ID, Nombre, Stock, Precio
             tablaProductos.WidthPercentage = 100;
 
             // Encabezados de la tabla
@@ -426,6 +426,7 @@ namespace Vista
             tablaProductos.AddCell("Nombre");
             tablaProductos.AddCell("Stock");
             tablaProductos.AddCell("Precio");
+            tablaProductos.AddCell("Código Barras");
 
             // Detalles de los productos en stock
             foreach (Producto producto in productosEnStock)
@@ -434,6 +435,7 @@ namespace Vista
                 tablaProductos.AddCell(producto.getNombre());
                 tablaProductos.AddCell(producto.getStock().ToString());
                 tablaProductos.AddCell(producto.getPrecio().ToString("C"));
+                tablaProductos.AddCell(producto.getCodigo().ToString());
             }
 
             // Agregar tabla al informe
