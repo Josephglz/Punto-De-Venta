@@ -99,7 +99,7 @@ namespace Vista
                 string query = "";
                 query = "INSERT INTO Empleado (id, nombre, apellido, usuario, password) VALUES (" + 
                     lastIDp+ ",'" + txtNombre.Text + "','" + txtApellido.Text +
-                    "','" + txtUsuario.Text + "','" +txtPassword.Text + ");";
+                    "','" + txtUsuario.Text + "','" +txtPassword.Text + "');";
                 Conector.herramientas(query);
 
                 loadTableColumns();

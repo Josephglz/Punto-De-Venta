@@ -101,9 +101,9 @@ namespace Vista
             if (editando == 0)
             {
                 string query = "";
-                query = "INSERT INTO Productos (id, nombre, descripcion, precio, stock) VALUES (" + 
+                query = "INSERT INTO Productos (id, nombre, descripcion, precio, stock, codigo) VALUES (" + 
                     lastIDp+ ",'" + txtNombre.Text + "','" + txtDescripcion.Text +
-                    "'," + float.Parse(txtPrecio.Text) + "," + Convert.ToInt32(txtStock.Text) + ");";
+                    "'," + float.Parse(txtPrecio.Text) + "," + Convert.ToInt32(txtStock.Text) + ",'"+ txtCodigo.Text + "');";
                 Conector.herramientas(query);
 
                 loadTableColumns();
@@ -114,7 +114,7 @@ namespace Vista
                 string query = "";
                 query = "UPDATE Productos SET id=" +
                     lastIDp + ", nombre='" + txtNombre.Text +"', descripcion='" + txtDescripcion.Text + "',precio=" + 
-                    float.Parse(txtPrecio.Text) + ", stock=" + Convert.ToInt32(txtStock.Text) + " where id=" + listaProductos.ElementAt(editando).getId() + ";";
+                    float.Parse(txtPrecio.Text) + ", stock=" + Convert.ToInt32(txtStock.Text) + "codigo='" + txtCodigo.Text + "' where id=" + listaProductos.ElementAt(editando).getId() + ";";
                 Conector.herramientas(query);
 
                 loadTableColumns();
@@ -134,6 +134,7 @@ namespace Vista
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
             txtStock.Text = "";
+            txtCodigo.Text = "";
             editando = -1;
             btnEliminar.Enabled = false;
         }
@@ -144,6 +145,7 @@ namespace Vista
             txtDescripcion.Text = "";
             txtPrecio.Text = "";
             txtStock.Text = "";
+            txtCodigo.Text = "";
             editando = -1;
             btnEliminar.Enabled = false;
         }
